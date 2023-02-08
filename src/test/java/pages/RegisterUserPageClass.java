@@ -11,10 +11,10 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtils;
 
-public class HomepagePageClass {
+public class RegisterUserPageClass {
 
     Actions actions = new Actions(Driver.getDriver());
-    public HomepagePageClass() {
+    public RegisterUserPageClass() {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }

@@ -2,23 +2,19 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomepagePageClass;
+import pages.RegisterUserPageClass;
+import utilities.BaseTestReport;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class RegisterUser {
+public class RegisterUserTestClass extends BaseTestReport {
 
-    /*
 
-      18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-
-     */
-
-    HomepagePageClass hm = new HomepagePageClass();
+    RegisterUserPageClass hm = new RegisterUserPageClass();
     @Test
     public void registerUser() {
 
-        // extentTest = extentReports.createTest("checkoutPageTest");
+         extentTest = extentReports.createTest("checkoutPageTest");
 
         Driver.getDriver().get(ConfigReader.getProperty("Homapage_url"));
 
@@ -32,15 +28,12 @@ public class RegisterUser {
 
         Assert.assertTrue(hm.accountInformationText.isDisplayed());
 
-
     }
 
     @Test
     public void accountInformationtest() {
 
-        Driver.getDriver().get(ConfigReader.getProperty("Account_Information_url"));
-
-        hm.signupLoginText();
+        registerUser();
 
         hm.accountInformation();
 
@@ -50,8 +43,6 @@ public class RegisterUser {
 
         hm.continueBtn.click();
 
-       // hm.closeBtn.click();
-
         Driver.getDriver().get("https://automationexercise.com/");
 
         Assert.assertTrue(hm.loggedText.isDisplayed());
@@ -60,10 +51,8 @@ public class RegisterUser {
 
         Assert.assertTrue(hm.deleteAccountText.isDisplayed());
 
-hm.deleteAccountContinue.click();
-
+        hm.deleteAccountContinue.click();
 
     }
-
 
 }
